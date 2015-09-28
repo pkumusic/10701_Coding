@@ -8,6 +8,7 @@ dict_list = add_dictionary(dict_list,file_neg)
 M = len(dict_list)
 print M
 #print dict_list
+file2
 
 
 
