@@ -1,6 +1,6 @@
 from math import log
 #mode: 0 - basic; 1 - with not; 2 - bi-gram
-mode = 2
+mode = 1
 
 def add_dictionary(ori_list, file):
     """
@@ -111,10 +111,12 @@ def get_px_list(M,N,review_list):
         for j in range(0,N):
             if i in review_list[j]:
                 count += 1
-        if count != 0:
-            logp = log(float(count)/N+0.1)
-        else:
-            logp = log(0.1)
+        # Laplace prior of c = 0.1
+        logp = log((float(count)+0.1)/(N+0.1*M))
+        #if count != 0:
+        #    logp = log(float(count)/N+0.1)
+        #else:
+        #    logp = log(0.1)
         px_list.append(logp)
     return px_list
 
