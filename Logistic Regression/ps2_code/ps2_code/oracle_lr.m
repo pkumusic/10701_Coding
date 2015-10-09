@@ -14,3 +14,13 @@ lambda(1) = 0; % do not penalize the bias term
 % TODO: Complete the function
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Calculate Log Likelihood 
+%f = y * X.' * w + sum(log(sigmoid(-X.' * w)));
+%g = X * (y - (1 - sigmoid(-w.' * X))).';
+
+% l2 regulated
+f = y * X.' * w + sum(log(sigmoid(-X.' * w))) - sum(lambda .* w .* w)/2;
+g = X * (y - (1 - sigmoid(-w.' * X))).' - lambda .* w; %(d+1) * 1
+
+
+

@@ -18,7 +18,7 @@ function [train, test] = load_data(binary_digits, varargin)
   X=X(:,I);
 
   % We standardize the data so that each pixel will have roughly zero mean and unit variance.
-  s=std(X,[],2);
+  s=std(X,[],2);  % why calculate along dimension 2 but not dimension 1?
   m=mean(X,2);
   X=bsxfun(@minus, X, m);
   X=bsxfun(@rdivide, X, s+.1);

@@ -8,7 +8,7 @@ num = 10;
 err = zeros(num,1);
 for i = 1:num
   w = rand(size(train.X,1),1) * 1e-3;
-  err(i) = grad_check(@oracle_lr, w, train.X(:,1:1000), train.y(1:1000));
+  err(i) = grad_check(@oracle_lr, w, train.X(:,1:100), train.y(1:100)); % 1-1000
 end
 
 err

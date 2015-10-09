@@ -18,7 +18,8 @@ for k = 1:max_iter
   % TODO: Complete this function
   %
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+  [f,g] = oracle_lr(w, X, y);
+  w = w + g * step;
   eps = abs((f - f_prev) / f_prev);
   fprintf('%21d %18g %20g %24g\n', k, f, eps, dot(w,w));
   if eps <= 1e-4
