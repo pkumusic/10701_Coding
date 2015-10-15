@@ -6,11 +6,11 @@ binary_lr = false;
 train.y = train.y + 1; % make labels 1-based.
 c = length(unique(train.y));
 
-num = 1; % 10 
+num = 5; % 10 
 err = zeros(num,1);
 for i = 1:num
   W = rand(size(train.X,1),c) * 1e-3;
-  err(i) = grad_check(@oracle_mlr, W, train.X(:,1:10), train.y(1:10)); %1000 
+  err(i) = grad_check(@oracle_mlr, W, train.X(:,1:10), train.y(1:10)) %1000 
 end
 
 err
